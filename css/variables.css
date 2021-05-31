@@ -19,6 +19,29 @@
   --color-header-text: #ffffff;
 
   /*typography*/
-  --font-size-base: 0.9rem;
-  --line-height-base: 1.6;
+
+  /*Font Weight*/
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 600;
+  --fw-extra-bold: 700;
+
+  /*Fonts Sizes*/
+  --fs-colossal: 4.5rem;
+  --fs-giant: 3.5 rem;
+  --fs-large: 2.5 rem;
+  --fs-medium: 2 rem;
+  --fs-default: 1.5 rem;
+  --fs-small: 1.25 rem;
+  --fs-smaller: 1.125 rem;
+  --fs-extra-small: 0.75 rem;
+
+
+  /*media queries*/
+  --screen-xs: 450 px;
+  --screen-sm: 680px;
+  --screen-tablet: 768px;
+  --screen-xl: 1024px;
+  --screen-max: 1440px;
+  --screen-full: 1920px;
 }

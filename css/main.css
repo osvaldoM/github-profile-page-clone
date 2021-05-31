@@ -1,12 +1,19 @@
 @import "normalize.css";
 @import "variables.css";
 @import "typography.css";
+@import "media-queries.css";
 
 body {
   background-color: var(--body-bg);
 }
 
-/*navbar*/
+.imposter {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+/*header navbar*/
 .page-header {
   background-color: var(--color-header-bg);
   color: var(--color-header-text);
@@ -38,6 +45,24 @@ body {
   fill: currentColor;
 }
 /*end navbar*/
+
+/*footer navbar */
+.footer-nav {
+  border-top: 1px solid #ebedef;
+  padding: 40px 0;
+  margin: 40px 0;
+  position: absolute;
+  bottom: 0;
+  width: var(--);
+}
+
+.footer-nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*end footer navbar*/
 
 .page-content {
   display: flex;
