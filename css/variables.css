@@ -1,0 +1,23 @@
+:root {
+  /*colors*/
+  ---primary-color: #2cb981;
+
+  ---secondary-color: #1fd08a;
+
+  ---info-color: #f0f3f6;
+
+  ---error-color: #EF4444;
+
+  ---disabled-button-color: #c9c9c9;
+
+  --color-header-bg: #24292e;
+
+  --color-search-placeholder: #c8c9ca;
+  /*--color-header-text: #ffffffb3;*/
+  --color-header-text: #ffffff;
+
+  /*typography*/
+  --body-bg: #f8fafc;
+  --font-size-base: 0.9rem;
+  --line-height-base: 1.6;
+}
