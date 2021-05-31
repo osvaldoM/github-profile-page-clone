@@ -2,15 +2,17 @@
   /*colors*/
   --body-bg: #ffffff;
 
-  ---primary-text-color: #24292e;
+  --primary-text-color: #24292e;
 
-  ---secondary-text-color: #586069;
+  --secondary-text-color: #586069;
 
-  ---info-color: #f0f3f6;
+  --primary-btn-bg:#2ea44f;
 
-  ---error-color: #EF4444;
+  --info-color: #f0f3f6;
 
-  ---disabled-button-color: #c9c9c9;
+  --error-color: #EF4444;
+
+  --disabled-button-color: #c9c9c9;
 
   --color-header-bg: #24292e;
 

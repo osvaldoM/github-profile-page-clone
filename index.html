@@ -73,7 +73,7 @@
     <p class="profile__bio">
       Pathological keen learner, with love for crafting beautiful front end experiences. Occasional blogger
     </p>
-      <button class="profile__edit-btn">Edit profile</button>
+      <button class="btn profile__edit-btn">Edit profile</button>
       <ul class="profile__info-list">
         <li class="profile__info-item">
           <a class="profile__info-link">
@@ -136,32 +136,29 @@
         </a>
       </li>
     </ul>
-
     <section id="repositories-tab" class="tabs__section" role="tabpanel" aria-labelledby="tab-repositories" aria-hidden="false">
       <div class="tabs__body">
-          <section>
-
-            <article>
-              <header>
-                <h2>Article title</h2>
-                <p>Posted on
-                  <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time>
-                  by <a href="#">Writer</a> - <a href="#comments">6 comments</a></p>
-              </header>
-              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-            </article>
-
-            <article>
-              <header>
-                <h2>Article title</h2>
-                <p>Posted on
-                  <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time>
-                  by <a href="#">Writer</a> - <a href="#comments">6 comments</a></p>
-              </header>
-              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-            </article>
-
-          </section>
+        <div class="repository-search-bar">
+          <input class="repository-search-bar__input" name="repository" type="search" placeholder="find a repository...">
+          <button class="btn dropdown-btn">
+            Type
+            <span class="dropdown-btn__caret"></span>
+          </button>
+          <button class="btn dropdown-btn">
+            Language
+            <span class="dropdown-btn__caret"></span>
+          </button>
+          <button class="btn dropdown-btn">
+            Sort
+            <span class="dropdown-btn__caret"></span>
+          </button>
+          <button class="btn create-repo-btn">
+            <svg class="fill-current" aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16" class="octicon octicon-repo">
+              <path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path>
+            </svg>
+            New
+          </button>
+        </div>
       </div>
     </section>
   </div>
