@@ -2,7 +2,11 @@
 @import "variables.css";
 @import "typography.css";
 
+body {
+  background-color: var(--body-bg);
+}
 
+/*navbar*/
 .page-header {
   background-color: var(--color-header-bg);
   color: var(--color-header-text);
@@ -33,6 +37,12 @@
 .main-logo {
   fill: currentColor;
 }
+/*end navbar*/
+
+.page-content {
+  display: flex;
+
+}
 
 .input-group {
   border: 1px solid #4a4e52;
@@ -57,3 +67,94 @@
   width: 20px;
   text-align: center;
 }
+
+/*profile block*/
+
+.profile__avatar {
+  max-width: 100%;
+  width: 260px;
+  height: 260px;
+  box-shadow: 0 0 0 1px #00000000;
+  border: 1px solid #e1e4e8;
+  border-radius: 50%;
+}
+
+.profile__name {
+  /*color: ;*/
+  line-height: 1.25;
+  font-size: 1.9rem;
+  padding-top:0.9rem;
+}
+.profile__nickname {
+  color: var(---secondary-text-color);
+  font-size: 1.4rem;
+  line-height: 1.2;
+  padding-bottom: 0.9rem;
+}
+.profile__bio {
+  font-size: 1.1rem;
+}
+/*end profile block*/
+
+
+/*tabs*/
+
+.tabs {margin: 2rem 0;}
+
+.tabs__list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: left;
+  list-style: none;
+}
+
+.tabs__item {
+  margin: 0;
+  width: 33.3333%;
+  text-align: center;
+  border-radius: 4px 4px 0 0;
+}
+
+.tabs__link {
+  padding: 1rem 0.5rem;
+  display: block;
+  border: none;
+  text-decoration: none;
+  text-shadow: none;
+}
+.tabs__link:hover,
+.tabs__link:focus {
+  text-shadow: 0 2px 4px #000
+}
+
+
+/* White focus ring - so you can see when it's focussed (not required) */
+.tl_section h2:focus {
+  outline: 1px solid currentcolor;
+}
+
+
+/* Section styling (optional) */
+
+.tabs__section {
+  padding: 1rem 1.5rem;
+  min-height: 8rem;
+  border-radius: 0 0 4px 4px;
+  text-shadow: none;
+}
+.tl_section h2 {
+  margin-top: 1rem;
+}
+
+
+/*
+Section styling (required)
+Removes hidden sections from the keychain.
+Only used when JavaScript is available.
+*/
+[role="tabpanel"][aria-hidden="true"] {
+  /*display: none;*/
+}
+
