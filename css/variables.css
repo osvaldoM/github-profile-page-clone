@@ -31,10 +31,10 @@
   --fs-giant: 3.5 rem;
   --fs-large: 2.5 rem;
   --fs-medium: 2 rem;
-  --fs-default: 1.5 rem;
+  --fs-default: 1.0 rem;
   --fs-small: 1.25 rem;
   --fs-smaller: 1.125 rem;
-  --fs-extra-small: 0.75 rem;
+  --fs-extra-small: 0.85 rem;
 
 
   /*media queries*/
