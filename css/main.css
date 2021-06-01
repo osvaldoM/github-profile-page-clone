@@ -10,7 +10,6 @@ body {
 
 .imposter {
   height: 100vh;
-  width: 100vw;
   position: relative;
 }
 .btn {
@@ -94,6 +93,15 @@ body {
   display: flex;
   /*margin: 0 -10px;*/
 }
+.profile__info-item {
+  display: flex;
+}
+.profile__info-item:not(:last-child)::after {
+  content: "·";
+  display: inline-block;
+  margin: 0 .2rem;
+}
+
 .profile__info-link {
   display: flex;
   align-items: center;
