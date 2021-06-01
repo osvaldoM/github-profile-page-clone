@@ -138,6 +138,16 @@ body {
   justify-content: space-between;
 }
 
+.footer-nav__item {
+  color: var(--secondary-text-color);
+  font-size: 0.9rem;
+}
+.footer-nav__link {
+  color: var(--link-text-color);
+}
+.footer-nav__link:hover {
+  text-decoration: underline;
+}
 /*end footer navbar*/
 
 .page-content {
