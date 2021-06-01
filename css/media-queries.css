@@ -73,6 +73,7 @@
   }
   .main-nav__item {
     padding: 0 15px;
+    width: auto;
   }
   .main-nav__item:not(.no-border) {
     border-top: none;
