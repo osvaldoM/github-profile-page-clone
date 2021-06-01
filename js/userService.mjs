@@ -2,6 +2,7 @@ import {checkFetchResponseStatus} from './helpers.mjs'
 
 
 let GH_ACCESS_TOKEN = '';
+
 const query = `query userAndRepositories($userName: String!){
   user(login: $userName) {
     avatarUrl
@@ -44,9 +45,6 @@ const query = `query userAndRepositories($userName: String!){
 `
 
 const fetchUser = (userName) => {
-  if(!GH_ACCESS_TOKEN){
-    GH_ACCESS_TOKEN = prompt('Please insert a Github Personal Access token, you can generate a token at: https://github.com/settings/tokens')
-  }
   return fetch('https://api.github.com/graphql', {
     method: 'POST',
     cache: 'no-cache',
@@ -64,11 +62,15 @@ const fetchUser = (userName) => {
   }).then(checkFetchResponseStatus)
     .then(response => {
       return response.json();
-    }).catch(err => {
-      console.log(err);
-    });
+    })
 }
 
+const isAuthenticated = () => GH_ACCESS_TOKEN ? true : false
+
+const authenticate = token => GH_ACCESS_TOKEN = token;
+
 export {
-  fetchUser
+  fetchUser,
+  isAuthenticated,
+  authenticate
 }

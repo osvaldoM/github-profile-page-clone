@@ -1,10 +1,15 @@
 import renderSideBar from './templates/sidebarTemplate.mjs'
 import renderRepositoryList from './templates/repositoryListTemplate.mjs'
-import {fetchUser} from "./userService.mjs";
+import {fetchUser, isAuthenticated, authenticate} from "./userService.mjs";
 
 document.querySelector('.search-user-form').addEventListener('submit', event => {
   event.preventDefault();
   event.stopImmediatePropagation();
+
+  if(!isAuthenticated()){
+    authenticate(prompt('Please insert a Github Personal Access token, you can generate a token at: https://github.com/settings/tokens'));
+  }
+
   const loadingSpinner = event.target.querySelector('.loading-spinner');
   loadingSpinner.classList.remove('hidden');
 
@@ -15,7 +20,9 @@ document.querySelector('.search-user-form').addEventListener('submit', event => 
     document.querySelector('.repository__list').innerHTML = renderRepositoryList(userData.data.user.repositories.nodes);
     document.querySelector('.repositories-count').textContent = userData.data.user.repositories.totalCount;
     document.title = `${userData.data.user.login}(${userData.data.user.name})`;
-  }).finally(res => {
+  }).catch(err => {
+    console.log(err);
+  }).finally(() => {
     loadingSpinner.classList.add('hidden');
   });
 });
