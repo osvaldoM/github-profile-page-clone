@@ -1,4 +1,4 @@
-const GH_ACCESS_TOKEN = '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';
+let GH_ACCESS_TOKEN = '';
 const query = `query userAndRepositories($userName: String!){
   user(login: $userName) {
     avatarUrl
@@ -141,6 +141,9 @@ const renderRepositories = (repositories => {
 })
 
 document.querySelector('.search-user-form').addEventListener('submit', event => {
+  if(!GH_ACCESS_TOKEN) {
+    GH_ACCESS_TOKEN = prompt('Please insert a Github Personal Access token, you can generate a token at: https://github.com/settings/tokens')
+  }
   event.preventDefault();
   event.stopImmediatePropagation();
   const loadingSpinner = event.target.querySelector('.loading-spinner');
