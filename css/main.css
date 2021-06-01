@@ -94,9 +94,6 @@ body {
 /*end navbar*/
 
 /*sidebar*/
-.sidebar {
-  width: 25%;
-}
 .profile__info-list {
   display: flex;
   /*margin: 0 -10px;*/
@@ -157,11 +154,6 @@ body {
 }
 /*end footer navbar*/
 
-.page-content {
-  display: flex;
-  padding-top: 2rem;
-}
-
 .input-group {
   border: 1px solid #4a4e52;
   border-radius: 5px;
@@ -189,9 +181,8 @@ body {
 /*profile block*/
 
 .profile__avatar {
-  max-width: 100%;
-  width: 260px;
-  height: 260px;
+  width: 100%;
+  height: auto;
   box-shadow: 0 0 0 1px #00000000;
   border: 1px solid #e1e4e8;
   border-radius: 50%;
@@ -226,13 +217,11 @@ body {
   padding: 0;
   margin: 0;
   align-items: center;
-  justify-content: left;
   list-style: none;
 }
 
 .tabs__item {
   margin: 0;
-  padding: 0 2rem;
   text-align: center;
   border-radius: 4px 4px 0 0;
   border-bottom: 2px solid transparent;
@@ -297,7 +286,6 @@ Only used when JavaScript is available.
 /*repository search bar*/
 
 .repository-search-bar {
-  display: flex;
   align-items: center;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid rgba(21,31,35,.15);
@@ -315,9 +303,9 @@ Only used when JavaScript is available.
 }
 /*end repository search bar*/
 .repository__item {
-  padding-bottom: 1.5rem;
-  padding-top: 1.5rem;
-  border-bottom: 1px solid rgba(21,31,35,.15);
+  /*padding-bottom: 1.5rem;*/
+  /*padding-top: 1.5rem;*/
+  /*border-bottom: 1px solid rgba(21,31,35,.15);*/
   display: flex;
   align-items: flex-start;
   justify-content: space-between;

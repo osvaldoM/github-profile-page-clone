@@ -42,10 +42,5 @@
 
 
   /*media queries*/
-  --screen-xs: 450 px;
-  --screen-sm: 680px;
-  --screen-tablet: 768px;
-  --screen-xl: 1024px;
-  --screen-max: 1440px;
-  --screen-full: 1920px;
+  /*--screen-sm: 847px;*/
 }

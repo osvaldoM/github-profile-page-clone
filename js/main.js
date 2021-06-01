@@ -87,16 +87,18 @@ const fetchUser = (userName) => {
 const renderSideBar = ({name, login, avatarUrl, bio, followers, following, starredRepositories}) => {
   return `
         <div class="profile">
-        <picture>
+        <picture class="profile__picture">
           <img class="profile__avatar" alt="" lazy
                src="${avatarUrl}">
         </picture>
-        <h1 class="profile__name" itemprop="name">${name ?? '-'}</h1>
-        <p class="profile__nickname" itemprop="additionalName">${login ?? '-'}</p>
+        <div>
+          <h1 class="profile__name" itemprop="name">${name ?? '-'}</h1>
+          <p class="profile__nickname" itemprop="additionalName">${login ?? '-'}</p>
+        </div>
         <p class="profile__bio">
           ${bio}
         </p>
-        <button class="btn profile__edit-btn">Edit profile</button>
+        <button class="btn profile__edit-btn">Follow</button>
         <ul class="profile__info-list">
           <li class="profile__info-item">
             <a class="profile__info-link">
