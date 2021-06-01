@@ -65,7 +65,9 @@
   margin-right: 2rem;
   margin-bottom: 1rem;
 }
-
+.profile__status-badge {
+  display: none;
+}
 .tabs {
   padding-top: 1.5rem;
   border-top: 1px solid rgba(21,31,35,.15);
@@ -140,6 +142,21 @@
     width: 100%;
     margin-right: 0;
     margin-bottom: 0;
+    display: block;
+    position: relative;
+  }
+  .profile__status-badge {
+    position: absolute;
+    height: 12%;
+    width: 12%;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #e1e4e8;
+    bottom: 20%;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .tabs {
     border-top-width: 0;

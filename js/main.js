@@ -14,6 +14,10 @@ const query = `query userAndRepositories($userName: String!){
     starredRepositories {
       totalCount
     }
+    status {
+      emojiHTML
+      message
+    }
     repositories(first: 20, orderBy: {field: UPDATED_AT, direction: DESC}) {
       totalCount
       nodes {
@@ -84,12 +88,12 @@ const fetchUser = (userName) => {
     });
 }
 
-const renderSideBar = ({name, login, avatarUrl, bio, followers, following, starredRepositories}) => {
+const renderSideBar = ({name, login, avatarUrl, bio, followers, following, starredRepositories, status}) => {
   return `
         <div class="profile">
         <picture class="profile__picture">
-          <img class="profile__avatar" alt="" lazy
-               src="${avatarUrl}">
+          <img class="profile__avatar" alt="" lazy src="${avatarUrl}">
+           <div class="profile__status-badge">${status?.emojiHTML ?? '-'}</div>
         </picture>
         <div>
           <h1 class="profile__name" itemprop="name">${name ?? '-'}</h1>
@@ -130,7 +134,7 @@ const renderSideBar = ({name, login, avatarUrl, bio, followers, following, starr
   `
 }
 
-const renderRepositories = (repositories => {
+const renderRepositories = repositories => {
   return repositories.map(({name, description, primaryLanguage, licenseInfo, updatedAt}) => {
     return `
                 <li class="repository__item">
@@ -157,7 +161,7 @@ const renderRepositories = (repositories => {
             </li>
     `
   }).join('');
-})
+}
 
 document.querySelector('.search-user-form').addEventListener('submit', event => {
   if(!GH_ACCESS_TOKEN) {
