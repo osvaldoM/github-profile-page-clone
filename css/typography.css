@@ -16,6 +16,6 @@ html, body {
   'Apple Color Emoji',
   'Segoe UI Emoji';
   font-size: 14px;
-  color:var(---primary-text-color);
+  color:var(--primary-text-color);
   line-height: 1.5;
 }
