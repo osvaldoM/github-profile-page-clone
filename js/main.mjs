@@ -20,7 +20,9 @@ document.querySelector('.search-user-form').addEventListener('submit', event => 
     document.querySelector('.repository__list').innerHTML = renderRepositoryList(userData.data.user.repositories.nodes);
     document.querySelector('.repositories-count').textContent = userData.data.user.repositories.totalCount;
     document.title = `${userData.data.user.login}(${userData.data.user.name})`;
+    document.querySelector('.search-user-banner').classList.add('hidden');
   }).catch(err => {
+    alert('there has been an error, see the console for more details')
     console.log(err);
   }).finally(() => {
     loadingSpinner.classList.add('hidden');
@@ -37,4 +39,12 @@ toggleButton.addEventListener('click', () => {
   isExpanded = !isExpanded;
   toggleButton.setAttribute('aria-expanded', isExpanded);
   toggleButton.closest('.main-nav__list').classList.toggle('expanded');
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.code === "Slash"){
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    document.querySelector('.user-name-input').focus();
+  }
 });
