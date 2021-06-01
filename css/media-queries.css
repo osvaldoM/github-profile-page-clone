@@ -27,8 +27,15 @@
 .main-nav__item:not(.no-border) {
   border-top: 1px solid #ffffff26;
 }
+.main-nav__item:not(.main-nav-item) {
+  display: none;
+}
+.main-nav__list.expanded .main-nav__item:not(.main-nav-item) {
+  display: flex;
+}
 .search-user-form {
   margin-bottom: .6rem;
+  width: 100%;
 }
 .input-group {
   width: 100%;
@@ -104,12 +111,18 @@
   .main-nav__item {
     padding: 0 15px;
     width: auto;
+    display: flex;
   }
   .main-nav__item:not(.no-border) {
     border-top: none;
+    display: flex;
+  }
+  .main-nav__item.no-border{
+    display: flex;
   }
   .search-user-form {
     margin-bottom: 0;
+    width: auto;
   }
   .input-group {
     width: auto;
