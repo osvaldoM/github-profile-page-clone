@@ -120,10 +120,6 @@ body {
 /*footer navbar */
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   background-color: var(--body-bg);
 }
 .footer-nav {
@@ -211,6 +207,7 @@ body {
 /*tabs*/
 
 .tabs {
+  width: 75%;
 }
 
 .tabs__list {
