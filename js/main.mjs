@@ -1,6 +1,6 @@
-import renderSideBar from './templates/sidebarTemplate.js'
-import renderRepositoryList from './templates/repositoryListTemplate.js'
-import {fetchUser} from "./userService.js";
+import renderSideBar from './templates/sidebarTemplate.mjs'
+import renderRepositoryList from './templates/repositoryListTemplate.mjs'
+import {fetchUser} from "./userService.mjs";
 
 document.querySelector('.search-user-form').addEventListener('submit', event => {
   event.preventDefault();

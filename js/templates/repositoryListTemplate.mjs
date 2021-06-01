@@ -1,4 +1,4 @@
-import {formatSimpleDate} from "../helpers.js";
+import {formatSimpleDate} from "../helpers.mjs";
 
 const renderRepositories = repositories => {
   return repositories.map(({name, description, primaryLanguage, licenseInfo, updatedAt}) => {

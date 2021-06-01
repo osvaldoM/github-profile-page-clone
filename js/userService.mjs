@@ -1,4 +1,4 @@
-import {checkFetchResponseStatus} from './helpers.js'
+import {checkFetchResponseStatus} from './helpers.mjs'
 
 
 let GH_ACCESS_TOKEN = '';
