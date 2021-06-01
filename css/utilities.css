@@ -1,3 +1,10 @@
+.flex {
+  display: flex;
+}
+
 .fill-current {
   fill: currentColor;
+}
+.mr-2 {
+  margin-right: .2rem;
 }

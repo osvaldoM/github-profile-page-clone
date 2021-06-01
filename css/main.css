@@ -293,3 +293,45 @@ Only used when JavaScript is available.
   color: var(--secondary-text-color);
 }
 /*end repository search bar*/
+.repository__item {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  border-bottom: 1px solid rgba(21,31,35,.15);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.star-repo-btn {
+  border: 1px solid rgba(21,31,35,.15);
+  background-color: #fafbfc;
+  color: #24292e;
+  margin: 0 .2rem;
+  display: flex;
+  align-items: center;
+}
+.repository__name {
+  color: var(--link-text-color);
+}
+
+.repository__description {
+  color: var(--secondary-text-color);
+  margin: .6rem 0 1rem;
+}
+
+.repository-meta {
+  margin: 1rem -1rem 0;
+}
+.repository-meta__item {
+  display: inline-block;
+  margin: 0 1rem;
+  color: var(--secondary-text-color);
+  font-size: 0.9rem;
+}
+.language-color {
+  border-radius: 50%;
+  background-color: red;
+  width: .8em;
+  height: .8em;
+  display: inline-block;
+}
