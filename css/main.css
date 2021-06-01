@@ -207,7 +207,7 @@ body {
 /*tabs*/
 
 .tabs {
-  width: 75%;
+  flex: 1;
 }
 
 .tabs__list {
@@ -295,6 +295,8 @@ Only used when JavaScript is available.
   border: 1px solid rgba(21,31,35,.15);
   border-radius: 0.4rem;
   padding: 6px 12px;
+  margin-right: .4rem;
+  flex: 1;
 }
 .repository-search-bar__input::placeholder {
   color: var(--secondary-text-color);

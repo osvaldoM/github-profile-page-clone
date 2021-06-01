@@ -34,6 +34,9 @@ const query = `query userAndRepositories($userName: String!){
           color
           name
         }
+        licenseInfo {
+          nickname
+        }
       }
     }
   }
@@ -125,9 +128,9 @@ const renderRepositories = (repositories => {
                 <p class="repository__description">${repository.description}</p>
                 <div class="flex repository-meta">
                   <span class="repository-meta__item">
-                    <span class="language-color" style="background-color: ${repository.primaryLanguage.color}"></span> ${repository.primaryLanguage.name}
+                    <span class="language-color" style="background-color: ${repository.primaryLanguage?.color}"></span> ${repository.primaryLanguage.name}
                   </span>
-                  <span class="repository-meta__item">MIT License</span>
+                  <span class="repository-meta__item">${repository.licenseInfo?.nickname ?? ''}</span>
                   <span class="repository-meta__item"> ${repository.updatedAt}</span>
                 </div>
               </div>
