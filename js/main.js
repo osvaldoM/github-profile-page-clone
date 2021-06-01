@@ -1,4 +1,4 @@
-const GH_ACCESS_TOKEN = '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';
+const GH_ACCESS_TOKEN = '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';
 
 const checkFetchResponseStatus = (response) => {
   if (response.ok) {
@@ -8,8 +8,8 @@ const checkFetchResponseStatus = (response) => {
   }
 }
 
-const query = `{
-  user(login: "osvaldom") {
+const query = `query userAndRepositories($userName: String!){
+  user(login: $userName) {
     avatarUrl
     bio
     followers {
@@ -48,11 +48,12 @@ const fetchUser = (userName) => {
     redirect: 'manual',
     headers: {
       'Content-Type': 'application/json',
+      'Accept': 'application/json',
       'Authorization' : "bearer " + GH_ACCESS_TOKEN,
     },
     body: JSON.stringify({
       query,
-      variables: { login: userName },
+      variables: { userName },
     }),
   }).then(checkFetchResponseStatus)
     .then(response => {
