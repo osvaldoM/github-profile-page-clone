@@ -1,4 +1,4 @@
-const GH_ACCESS_TOKEN = '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';
+const GH_ACCESS_TOKEN = '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';
 
 const checkFetchResponseStatus = (response) => {
   if(response.ok){

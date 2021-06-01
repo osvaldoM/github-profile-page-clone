@@ -148,7 +148,7 @@ body {
 
 .page-content {
   display: flex;
-
+  padding-top: 2rem;
 }
 
 .input-group {
