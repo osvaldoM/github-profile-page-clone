@@ -235,14 +235,15 @@ body {
   padding: 0 2rem;
   text-align: center;
   border-radius: 4px 4px 0 0;
+  border-bottom: 2px solid transparent;
 }
 .tabs__item--active {
   color: #24292e;
   font-weight: var(--fw-extra-bold);
-  border-bottom: 2px solid #f9826c;
+  border-bottom-color: #f9826c;
 }
 .tabs__item:hover:not(.tabs__item--active) {
-  border-bottom: 2px solid #d1d5da;
+  border-bottom-color:#d1d5da;
 }
 
 .tabs__link {

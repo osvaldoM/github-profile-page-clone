@@ -44,6 +44,23 @@ const checkFetchResponseStatus = (response) => {
   }
 }
 
+const formatSimpleDate = (dateString) => {
+  const date = new Date(dateString);
+  const today = new Date();
+
+  if(date.getFullYear() < today.getFullYear()) {
+    return date.toLocaleString('en-GB', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+  }
+  return date.toLocaleString('en-GB', {
+    month: 'short',
+    day: 'numeric'
+  });
+}
+
 const fetchUser = (userName) => {
   return fetch('https://api.github.com/graphql', {
     method: 'POST',
@@ -74,8 +91,8 @@ const renderSideBar = ({name, login, avatarUrl, bio, followers, following, starr
           <img class="profile__avatar" alt="" lazy
                src="${avatarUrl}">
         </picture>
-        <h1 class="profile__name" itemprop="name">${name}</h1>
-        <p class="profile__nickname" itemprop="additionalName">${login}</p>
+        <h1 class="profile__name" itemprop="name">${name ?? '-'}</h1>
+        <p class="profile__nickname" itemprop="additionalName">${login ?? '-'}</p>
         <p class="profile__bio">
           ${bio}
         </p>
@@ -88,12 +105,12 @@ const renderSideBar = ({name, login, avatarUrl, bio, followers, following, starr
                 <path fill-rule="evenodd"
                       d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path>
               </svg>
-              <strong class="profile__info-count">${followers.totalCount}</strong> followers &nbsp;·
+              <strong class="profile__info-count">${followers.totalCount ?? 0}</strong> followers &nbsp;·
             </a>
           </li>
           <li class="profile__info-item">
             <a class="profile__info-link">
-              <strong class="profile__info-count">${following.totalCount} </strong> following &nbsp;·
+              <strong class="profile__info-count">${following.totalCount ?? 0} </strong> following &nbsp;·
             </a>
           </li>
           <li class="profile__info-item">
@@ -117,15 +134,15 @@ const renderRepositories = (repositories => {
                 <li class="repository__item">
               <div>
                 <h3>
-                  <a href="#" class="repository__name">${name}</a>
+                  <a href="#" class="repository__name">${name?? '-'}</a>
                 </h3>
-                <p class="repository__description">${description}</p>
+                <p class="repository__description">${description ?? '-'}</p>
                 <div class="flex repository-meta">
                   <span class="repository-meta__item">
-                    <span class="language-color" style="background-color: ${primaryLanguage?.color}"></span> ${primaryLanguage?.name}
+                    <span class="language-color" style="background-color: ${primaryLanguage?.color}"></span> ${primaryLanguage?.name ?? '-'}
                   </span>
                   <span class="repository-meta__item">${licenseInfo?.nickname ?? ''}</span>
-                  <span class="repository-meta__item"> ${updatedAt}</span>
+                  <span class="repository-meta__item"> Updated on ${updatedAt ? formatSimpleDate(updatedAt) : '-'}</span>
                 </div>
               </div>
               <button class="btn star-repo-btn">
