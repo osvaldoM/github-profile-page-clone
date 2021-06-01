@@ -8,3 +8,7 @@
 .mr-2 {
   margin-right: .2rem;
 }
+
+.hidden {
+  display: none !important;
+}

@@ -40,9 +40,14 @@
         <li class="main-nav__item">
           <form class="search-user-form" method="post" action="">
             <div class="input-group">
-              <input type="text" class="input-group__input" placeholder="Search or jump to…">
+              <input name="user_name" type="text" class="input-group__input" placeholder="Search or jump to…">
               <span class="input-group__sufix"> / </span>
             </div>
+            <svg class="loading-spinner hidden" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+              <circle cx="50" cy="50" fill="none" stroke="currentColor" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138">
+                <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="0.5181347150259068s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+              </circle>
+            </svg>
           </form>
         </li>
         <li class="main-nav__item">

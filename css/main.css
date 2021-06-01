@@ -58,6 +58,10 @@ body {
 
 .main-nav {
 }
+.search-user-form {
+  display: flex;
+  align-items: center;
+}
 
 .main-nav__list {
   display: flex;
@@ -79,6 +83,13 @@ body {
 
 .main-logo {
   fill: currentColor;
+}
+.loading-spinner {
+  width: 1.5rem;
+  height: 100%;
+  margin-left: 1rem;
+  display: block;
+  shape-rendering: auto;
 }
 /*end navbar*/
 

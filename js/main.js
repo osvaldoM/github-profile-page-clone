@@ -1,17 +1,10 @@
-const GH_ACCESS_TOKEN = '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';
-
-const checkFetchResponseStatus = (response) => {
-  if(response.ok){
-    return Promise.resolve(response)
-  } else{
-    return Promise.reject(new Error(response.statusText))
-  }
-}
-
+const GH_ACCESS_TOKEN = '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';
 const query = `query userAndRepositories($userName: String!){
   user(login: $userName) {
     avatarUrl
     bio
+    name
+    login
     followers {
       totalCount
     }
@@ -43,6 +36,14 @@ const query = `query userAndRepositories($userName: String!){
 }
 `
 
+const checkFetchResponseStatus = (response) => {
+  if(response.ok){
+    return Promise.resolve(response)
+  } else{
+    return Promise.reject(new Error(response.statusText))
+  }
+}
+
 const fetchUser = (userName) => {
   return fetch('https://api.github.com/graphql', {
     method: 'POST',
@@ -66,24 +67,17 @@ const fetchUser = (userName) => {
     });
 }
 
-fetchUser('osvaldom').then(userData => {
-  document.querySelector('.sidebar').innerHTML = renderSideBar(userData.data.user);
-  document.querySelector('.repository__list').innerHTML = renderRepositories(userData.data.user.repositories.nodes);
-  document.querySelector('.repositories-count').textContent = userData.data.user.repositories.totalCount
-});
-
-
-const renderSideBar = (user) => {
+const renderSideBar = ({name, login, avatarUrl, bio, followers, following, starredRepositories}) => {
   return `
         <div class="profile">
         <picture>
           <img class="profile__avatar" alt="" lazy
-               src="${user.avatarUrl}">
+               src="${avatarUrl}">
         </picture>
-        <h1 class="profile__name" itemprop="name">Osvaldo Maria</h1>
-        <p class="profile__nickname" itemprop="additionalName">osvaldoM</p>
+        <h1 class="profile__name" itemprop="name">${name}</h1>
+        <p class="profile__nickname" itemprop="additionalName">${login}</p>
         <p class="profile__bio">
-          ${user.bio}
+          ${bio}
         </p>
         <button class="btn profile__edit-btn">Edit profile</button>
         <ul class="profile__info-list">
@@ -94,12 +88,12 @@ const renderSideBar = (user) => {
                 <path fill-rule="evenodd"
                       d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path>
               </svg>
-              <strong class="profile__info-count">${user.followers.totalCount}</strong> followers &nbsp;·
+              <strong class="profile__info-count">${followers.totalCount}</strong> followers &nbsp;·
             </a>
           </li>
           <li class="profile__info-item">
             <a class="profile__info-link">
-              <strong class="profile__info-count">${user.following.totalCount} </strong> following &nbsp;·
+              <strong class="profile__info-count">${following.totalCount} </strong> following &nbsp;·
             </a>
           </li>
           <li class="profile__info-item">
@@ -109,7 +103,7 @@ const renderSideBar = (user) => {
                 <path fill-rule="evenodd"
                       d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
               </svg>
-              <strong class="profile__info-count">${user.starredRepositories.totalCount ?? 0}</strong>
+              <strong class="profile__info-count">${starredRepositories.totalCount ?? 0}</strong>
             </a>
           </li>
         </ul>
@@ -118,20 +112,20 @@ const renderSideBar = (user) => {
 }
 
 const renderRepositories = (repositories => {
-  return repositories.map(repository => {
+  return repositories.map(({name, description, primaryLanguage, licenseInfo, updatedAt}) => {
     return `
                 <li class="repository__item">
               <div>
                 <h3>
-                  <a class="repository__name">${repository.name}</a>
+                  <a href="#" class="repository__name">${name}</a>
                 </h3>
-                <p class="repository__description">${repository.description}</p>
+                <p class="repository__description">${description}</p>
                 <div class="flex repository-meta">
                   <span class="repository-meta__item">
-                    <span class="language-color" style="background-color: ${repository.primaryLanguage?.color}"></span> ${repository.primaryLanguage.name}
+                    <span class="language-color" style="background-color: ${primaryLanguage?.color}"></span> ${primaryLanguage?.name}
                   </span>
-                  <span class="repository-meta__item">${repository.licenseInfo?.nickname ?? ''}</span>
-                  <span class="repository-meta__item"> ${repository.updatedAt}</span>
+                  <span class="repository-meta__item">${licenseInfo?.nickname ?? ''}</span>
+                  <span class="repository-meta__item"> ${updatedAt}</span>
                 </div>
               </div>
               <button class="btn star-repo-btn">
@@ -145,3 +139,20 @@ const renderRepositories = (repositories => {
     `
   }).join('');
 })
+
+document.querySelector('.search-user-form').addEventListener('submit', event => {
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  const loadingSpinner = event.target.querySelector('.loading-spinner');
+  loadingSpinner.classList.remove('hidden');
+
+  const userName = event.target.user_name.value;
+
+  fetchUser(userName).then(userData => {
+    document.querySelector('.sidebar').innerHTML = renderSideBar(userData.data.user);
+    document.querySelector('.repository__list').innerHTML = renderRepositories(userData.data.user.repositories.nodes);
+    document.querySelector('.repositories-count').textContent = userData.data.user.repositories.totalCount
+  }).finally(res => {
+    loadingSpinner.classList.add('hidden');
+  });
+});
