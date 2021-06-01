@@ -136,6 +136,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .footer-nav__item {
@@ -214,6 +215,7 @@ body {
   margin: 0;
   align-items: center;
   list-style: none;
+  max-width: 100%;
 }
 
 .tabs__item {
@@ -264,7 +266,6 @@ body {
 /* Section styling (optional) */
 
 .tabs__section {
-  padding: 1rem 1.5rem;
   min-height: 8rem;
   border-radius: 0 0 4px 4px;
   text-shadow: none;
