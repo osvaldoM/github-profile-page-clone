@@ -12,6 +12,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^7.0.6",
+    "cypress": "^7.4.0",
     "parcel-bundler": "^1.12.4"
   }
 }

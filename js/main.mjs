@@ -38,6 +38,7 @@ const toggleButton = document.querySelector('.main-nav__toggle-nav');
 toggleButton.addEventListener('click', () => {
   isExpanded = !isExpanded;
   toggleButton.setAttribute('aria-expanded', isExpanded);
+  toggleButton.setAttribute('aria-label', isExpanded ? 'Close navigation' : 'Open navigation');
   toggleButton.closest('.main-nav__list').classList.toggle('expanded');
 });
 
