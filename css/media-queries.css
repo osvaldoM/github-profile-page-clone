@@ -162,6 +162,7 @@
   }
   .tabs {
     border-top-width: 0;
+    padding-top: 0;
   }
   .tabs__section {
     padding: 1rem 1.5rem;
