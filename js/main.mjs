@@ -57,15 +57,16 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-window.onscroll = function() {myFunction()};
-
-var header = document.querySelector(".desktop-tabs");
-var sticky = header.offsetTop;
-
-function myFunction() {
-    if (window.pageYOffset > sticky) {
-        header.classList.add("sticky");
-    } else {
-        header.classList.remove("sticky");
+const header = document.querySelector(".desktop-tabs");
+const io = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                header.classList.remove("sticky");
+            } else {
+                header.classList.add("sticky");
+            }
+        });
     }
-}
+);
+io.observe(document.querySelector('.page-header'));
