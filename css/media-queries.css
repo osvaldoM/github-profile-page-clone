@@ -98,7 +98,9 @@
   padding-left: 16px;
   padding-right: 16px;
 }
-
+.star-repo-btn {
+  display: none;
+}
 @media screen and (min-width: 930px){
   .page-content {
     flex-direction: row;
@@ -182,6 +184,9 @@
     margin: 0;
     padding-left: 0;
     padding-right: 0;
+  }
+  .star-repo-btn {
+    display: flex;
   }
   .footer__octocat-icon {
     display: block;

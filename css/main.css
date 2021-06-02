@@ -318,7 +318,6 @@ Only used when JavaScript is available.
   background-color: #fafbfc;
   color: #24292e;
   margin: 0 .2rem;
-  display: flex;
   align-items: center;
 }
 .repository__name {
@@ -335,7 +334,7 @@ Only used when JavaScript is available.
 }
 .repository-meta__item {
   display: inline-block;
-  margin: 0 1rem;
+  margin: 0 .5rem;
   color: var(--secondary-text-color);
   font-size: 0.9rem;
 }
