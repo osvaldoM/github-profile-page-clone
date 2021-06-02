@@ -223,7 +223,7 @@ body {
   margin: 0;
   align-items: center;
   list-style: none;
-  max-width: 100%;
+  /*max-width: 100%;*/
 }
 
 .tabs__item {
@@ -330,7 +330,7 @@ Only used when JavaScript is available.
 }
 
 .repository-meta {
-  margin: 1rem -1rem 0;
+  margin: 1rem -.5rem 0;
 }
 .repository-meta__item {
   display: inline-block;
