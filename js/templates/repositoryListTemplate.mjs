@@ -3,7 +3,7 @@ import {formatSimpleDate} from "../helpers.mjs";
 const renderRepositories = repositories => {
   return repositories.map(({name, description, primaryLanguage, licenseInfo, updatedAt}) => {
     return `
-      <li class="repository__item">
+      <li data-cy="repository-item" class="repository__item">
           <div>
               <h3>
                   <a href="#" class="repository__name">${name ?? '-'}</a>

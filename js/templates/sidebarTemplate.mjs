@@ -1,6 +1,6 @@
 const renderSideBar = ({name, login, avatarUrl, bio, followers, following, starredRepositories, status}) => {
   return `
-      <div class="profile">
+      <div data-cy="profile" class="profile">
           <picture class="profile__picture">
               <img class="profile__avatar" alt="profile image" lazy src="${avatarUrl}">
               <div class="profile__status-badge">${status?.emojiHTML ?? '-'}</div>
